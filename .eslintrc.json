@@ -1,0 +1,111 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "testing-library",
+    "jest-dom"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:testing-library/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "rules": {
+    "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "testing-library/no-dom-import": "error",
+    "testing-library/prefer-explicit-assert": "error",
+    "testing-library/prefer-screen-queries": "error",
+    "testing-library/prefer-wait-for": "error",
+    "curly": ["error", "all"],
+    "object-shorthand": ["error", "always"],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "styled-components",
+            "message": "Please import from styling"
+          },
+          {
+            "name": "styled-system",
+            "message": "This is a low-level library reserved for our design system implementation"
+          },
+          {
+            "name": "styling/theme",
+            "message": "Only access theme from the ThemeContext"
+          },
+          {
+            "name": "styling/system",
+            "message": "This should only be used to build primitive components"
+          },
+          {
+            "name": "@testing-library/react",
+            "message": "Please import from testing"
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.js"],
+      "env": { "node": true }
+    },
+    {
+      "files": ["**/*.mdx"],
+      "extends": ["plugin:mdx/recommended"]
+    },
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint"
+      ],
+      "rules": {
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/array-type": ["error", { "default": "array-simple" }],
+        "@typescript-eslint/prefer-interface": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-object-literal-type-assertion": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "types": {
+              "{}": false,
+              "Object": false,
+              "object": false
+            },
+            "extendDefaults": true
+          }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

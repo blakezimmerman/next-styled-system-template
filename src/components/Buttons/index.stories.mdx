@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { BaseButton } from ".";
+
+<Meta title="Shared/Buttons" component={BaseButton} />
+
+# Buttons
+
+Buttons are clickable elements used to perform an action.
+
+## Base Button
+
+This the most primitive button.
+It simply renders a `button` element with all the default browser styles removed.
+This component accepts all of props that are accepted by both the `Flex` component and the native `button` element.
+
+In general, this component should be reserved for implementing other components in the design system, however, it does make sense to occasionally use it for one-off situations where you need to make an element clickable.
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="BaseButton">
+    <BaseButton onClick={action("Clicked")}>Click Me</BaseButton>
+  </Story>
+</Canvas>

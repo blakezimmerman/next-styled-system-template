@@ -1,0 +1,44 @@
+import { Meta, Story, Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { Box } from "../Box";
+import { Stack } from ".";
+
+<Meta title="Shared/Layout/Stack" component={Stack} />
+
+# Stack
+
+The `Stack` component is intended for making vertical lists with evenly spaced elements.
+It is functionally equivalent to using the `Flex` component with the `flexDirection` prop permanently set to `"column"`.
+To control the spacing between childrem, use the `gap` prop which accepts any index valid in our theme's `spaces` scale.
+
+## Basic Example
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Basic Example">
+    <Stack gap={3} alignItems="center" bg="background2">
+      <Box bg="primary" height={6} width={6} />
+      <Box bg="primary" height={6} width={6} />
+      <Box bg="primary" height={6} width={6} />
+    </Stack>
+  </Story>
+</Canvas>
+
+## Nested Stacks
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Nested Stacks">
+    <Stack gap={5} padding={5} bg="background2">
+      <Stack gap={3}>
+        <Box bg="primary" height={6} width={6} />
+        <Box bg="primary" height={6} width={6} />
+      </Stack>
+      <Stack gap={3}>
+        <Box bg="primary" height={6} width={6} />
+        <Box bg="primary" height={6} width={6} />
+      </Stack>
+      <Stack gap={3}>
+        <Box bg="primary" height={6} width={6} />
+        <Box bg="primary" height={6} width={6} />
+      </Stack>
+    </Stack>
+  </Story>
+</Canvas>

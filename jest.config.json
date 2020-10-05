@@ -1,0 +1,28 @@
+{
+  "verbose": true,
+  "setupFilesAfterEnv": ["./setupTests.tsx"],
+  "transform": {
+    "^.+\\.jsx?$": "ts-jest",
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "testRegex": "src/.*.test.(jsx?|tsx?)$",
+  "globals": {
+    "ts-jest": {
+      "tsConfig": "tsconfig.test.json"
+    }
+  },
+  "transformIgnorePatterns": ["node_modules/(?!/jest-runtime/)"],
+  "moduleDirectories": ["node_modules", "src"],
+  "moduleFileExtensions": ["ts", "tsx", "js", "json"],
+  "moduleNameMapper": {
+    "\\.(pdf|png|jpe?g|gif|svg|woff|woff2|ttf|eot|css)$": "<rootDir>/__mocks__/fileMock.js"
+  },
+  "reporters": ["default"],
+  "collectCoverage": true,
+  "coverageReporters": ["json", "lcov", "text-summary", "html"],
+  "collectCoverageFrom": [
+    "src/**/*.{ts,tsx}",
+    "!src/**/*.d.ts",
+    "!src/**/*.stories.{ts,tsx,mdx}"
+  ]
+}
