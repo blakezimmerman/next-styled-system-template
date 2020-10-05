@@ -1,0 +1,38 @@
+import { Meta, Story, Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { Box } from "../Box";
+import { Inline } from ".";
+
+<Meta title="Shared/Layout/Inline" component={Inline} />
+
+# Inline
+
+The `Inline` component is intended for making horizontal lists with evenly spaced elements.
+It is mostly equivalent to using the `Flex` component with the `flexDirection` prop permanently set to `"row"`.
+To control the spacing between childrem, use the `gap` prop which accepts any index valid in our theme's `spaces` scale.
+
+What makes `Inline` unique is how it handles wrapping behavior.
+If the component's children wrap, they will be spaced evenly both horizontally and vertically.
+
+## Example Without Wrapping
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Example Without Wrapping">
+    <Inline gap={3} bg="background2">
+      <Box bg="primary" height={6} width={6} />
+      <Box bg="primary" height={6} width={6} />
+      <Box bg="primary" height={6} width={6} />
+    </Inline>
+  </Story>
+</Canvas>
+
+## Example With Wrapping
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Example With Wrapping">
+    <Inline gap={3} bg="background2">
+      {new Array(80).fill(null).map((_, i) => (
+        <Box key={i} bg="primary" height={6} width={6} />
+      ))}
+    </Inline>
+  </Story>
+</Canvas>

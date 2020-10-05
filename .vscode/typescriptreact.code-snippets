@@ -1,0 +1,16 @@
+{
+  "React Function Component": {
+    "scope": "typescriptreact",
+    "prefix": ["rfc"],
+    "body": [
+      "import React from \"react\";",
+      "",
+      "export type ${1:MyComponent}Props = {};",
+      "",
+      "export const ${1} = (props: ${1}Props) => {",
+      "  return null;",
+      "};"
+    ],
+    "description": "A React function component with props"
+  }
+}

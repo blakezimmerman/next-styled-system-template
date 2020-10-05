@@ -1,0 +1,36 @@
+import { Meta, Story, Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { Flex, FlexItem } from ".";
+
+<Meta title="Shared/Layout/Flex" component={Flex} />
+
+# Flex
+
+The `Flex` component is just the `Box` component with the `display: flex;` property applied to it.
+As a result, all the same rules of using `Box` apply to this component.
+In addition, the `Flex` component accepts all the CSS flexbox properties as props.
+I strongly recommend reading [the complete guide to CSS flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) to fully understand how to use this component.
+
+## Make Reusable Components
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Reusable Component">
+    <Flex inline={true} padding={3} borderRadius={5} bg="accent1" textColor="accentText">
+      I&apos;m a pill component
+    </Flex>
+  </Story>
+</Canvas>
+
+## Make Simple Layouts
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Simple Layout">
+    <Flex padding={4} bg="background2" flexDirection="column">
+      <FlexItem alignSelf="center" padding={3}>
+        Title
+      </FlexItem>
+      <Flex padding={3} bg="background3">
+        Content
+      </Flex>
+    </Flex>
+  </Story>
+</Canvas>

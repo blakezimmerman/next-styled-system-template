@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { Box } from ".";
+
+<Meta title="Shared/Layout/Box" component={Box} />
+
+# Box
+
+The `Box` component is the most basic of all UI primitives.
+It is essentially a `div` that accepts props to modify properties relating to border, color, layout, position, shadow, and space.
+However, by using the polymorphic `as` prop, this component can be rendered as any HTML element you like.
+
+With great power comes responsibility, so I recommend that you use this component sparingly.
+It should only be used to make other small reusable components or simple layouts that don't require flexbox or grid layout.
+
+## Make Reusable Components
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Reusable Component">
+    <Box padding={4} borderRadius={1} shadow={2} bg="background3">
+      I&apos;m a card component
+    </Box>
+  </Story>
+</Canvas>
+
+## Make Simple Layouts
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Simple Layout">
+    <Box padding={4} bg="background2">
+      I have a background and some padding
+    </Box>
+  </Story>
+</Canvas>

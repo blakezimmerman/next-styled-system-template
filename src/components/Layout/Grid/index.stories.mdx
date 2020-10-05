@@ -1,0 +1,66 @@
+import { Meta, Story, Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { Box } from "../Box";
+import { Grid, GridItem } from ".";
+
+<Meta title="Shared/Layout/Grid" component={Grid} />
+
+# Grid
+
+The `Grid` component is an abstraction over CSS Grid Layout.
+It accepts all of the CSS grid properties as props as well as any props that are accepted by the `Box` component.
+I strongly recommend reading [the complete guide to CSS grid](https://css-tricks.com/snippets/css/complete-guide-grid/) to fully understand how to use this component.
+
+## Simple Rows
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Simple Rows">
+    <Grid height={9} width="100%" gridTemplateRows="auto 1fr auto">
+      <Box bg="accent1">Row 1</Box>
+      <Box bg="accent2">Row 2</Box>
+      <Box bg="accent3">Row 3</Box>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Simple Columns
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Simple Columns">
+    <Grid height={9} width="100%" gridTemplateColumns="1fr auto auto">
+      <Box bg="accent1">Column 1</Box>
+      <Box bg="accent2">Column 2</Box>
+      <Box bg="accent3">Column 3</Box>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Complex Grid Area
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Complex Grid Area">
+    <Grid
+      height={9}
+      width="100%"
+      gridTemplateColumns="1fr 1fr 1fr 1fr"
+      gridTemplateRows="auto"
+      gridTemplateAreas={`
+        "header header header header"
+        "main main . sidebar"
+        "footer footer footer footer"
+      `}
+    >
+      <GridItem gridArea="header" bg="accent1">
+        Header
+      </GridItem>
+      <GridItem gridArea="main" bg="accent2">
+        Main
+      </GridItem>
+      <GridItem gridArea="sidebar" bg="accent3">
+        SideBar
+      </GridItem>
+      <GridItem gridArea="footer" bg="accent4">
+        Footer
+      </GridItem>
+    </Grid>
+  </Story>
+</Canvas>
